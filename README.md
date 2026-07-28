@@ -1,0 +1,74 @@
+# Create: Shadow Steel
+
+A small NeoForge 1.21.1 addon that makes Create's existing Shadow Steel and Shadow Casing obtainable again.
+
+The addon does not copy or replace Create's item/block registrations. Create already registers:
+
+- `create:shadow_steel`
+- `create:shadow_steel_casing`
+
+This project only adds recipes for them.
+
+## Recipes
+
+### Shadow Steel — Mechanical Mixing
+
+Mix the following without heat:
+
+- 2 Blackstone
+- 2 Iron Ingots
+- 2 Coal Pieces from Create: Dreams n' Desires
+
+Output: 2 Shadow Steel.
+
+### Shadow Casing — Item Application
+
+Use Shadow Steel on any block in the `c:stripped_logs` tag. This uses Create's `create:item_application` recipe type, the same system used by Andesite Casing.
+
+The same recipe also works with a Deployer.
+
+## Requirements
+
+- Minecraft 1.21.1
+- NeoForge 21.1.200 or newer
+- Create 6.0.9–6.0.x
+- Create: Dreams n' Desires
+- Java 21 for development
+
+## Set up on Windows
+
+```powershell
+git clone https://github.com/KoalaNalle/Create-Shadow-Steel.git
+cd Create-Shadow-Steel
+powershell -ExecutionPolicy Bypass -File .\bootstrap-wrapper.ps1
+.\gradlew.bat build
+```
+
+The built mod is written to `build/libs/`.
+
+After the wrapper has been downloaded, commit `gradle/wrapper/gradle-wrapper.jar` so future clones can use `gradlew.bat` immediately.
+
+## Development client
+
+Put a compatible Create: Dreams n' Desires JAR in `run/mods/`, then run:
+
+```powershell
+.\gradlew.bat runClient
+```
+
+Create and its required development dependencies are supplied through Gradle. Dreams n' Desires is intentionally not pinned as a Maven dependency because the recipes only reference its stable item ID, `dndesires:coal_piece`.
+
+## Project structure
+
+```text
+src/main/java/
+  io/github/koalanalle/createshadowsteel/CreateShadowSteel.java
+src/main/resources/data/create_shadow_steel/recipe/
+  mixing/shadow_steel.json
+  item_application/shadow_steel_casing_from_log.json
+src/main/templates/META-INF/neoforge.mods.toml
+```
+
+## License
+
+MIT
