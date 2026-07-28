@@ -25,10 +25,13 @@
     {
       "item": "dndesires:coal_piece"
     }
+	{
+      "item": "dndesires:coal_piece"
+    }
   ],
   "results": [
     {
-      "count": 2,
+      "count": 1,
       "id": "create:shadow_steel"
     }
   ],
