@@ -17,9 +17,9 @@ Place the following in a Basin and process it with a Mechanical Press while the 
 
 - 2 Blackstone
 - 2 Iron Ingots
-- 4 Coal Pieces from Create: Dreams n' Desires
+- 5 Coal Pieces from Create: Dreams n' Desires
 
-Output: 2 Shadow Steel.
+Output: 1 Shadow Steel.
 
 ### Shadow Casing — Item Application
 
@@ -36,7 +36,7 @@ The source resource is `src/main/resources/icon.png`. Gradle copies it to `build
 - Minecraft 1.21.1
 - NeoForge 21.1.200 or newer
 - Create 6.0.9–6.0.x
-- Create: Dreams n' Desires
+- Create: Dreams n' Desires 2.0+
 - Java 21 for development
 
 ## Set up on Windows
