@@ -11,13 +11,13 @@ This project only adds recipes for them.
 
 ## Recipes
 
-### Shadow Steel — Mechanical Mixing
+### Shadow Steel — Heated Compacting
 
-Mix the following without heat:
+Place the following in a Basin and process it with a Mechanical Press while the Basin is heated by a Blaze Burner:
 
 - 2 Blackstone
 - 2 Iron Ingots
-- 2 Coal Pieces from Create: Dreams n' Desires
+- 4 Coal Pieces from Create: Dreams n' Desires
 
 Output: 2 Shadow Steel.
 
@@ -26,6 +26,10 @@ Output: 2 Shadow Steel.
 Use Shadow Steel on any block in the `c:stripped_logs` tag. This uses Create's `create:item_application` recipe type, the same system used by Andesite Casing.
 
 The same recipe also works with a Deployer.
+
+## Mod icon
+
+The source resource is `src/main/resources/icon.png`. Gradle copies it to `build/resources/main/icon.png` during resource processing. The icon is declared with `logoFile="icon.png"` in `neoforge.mods.toml`.
 
 ## Requirements
 
@@ -63,8 +67,9 @@ Create and its required development dependencies are supplied through Gradle. Dr
 ```text
 src/main/java/
   io/github/koalanalle/createshadowsteel/CreateShadowSteel.java
+src/main/resources/icon.png
 src/main/resources/data/create_shadow_steel/recipe/
-  mixing/shadow_steel.json
+  compacting/shadow_steel.json
   item_application/shadow_steel_casing_from_log.json
 src/main/templates/META-INF/neoforge.mods.toml
 ```
