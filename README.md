@@ -72,3 +72,9 @@ src/main/templates/META-INF/neoforge.mods.toml
 ## License
 
 MIT
+
+## Creative inventory and recipe viewers
+
+The addon adds Shadow Steel and Shadow Casing back to Create's main creative tab. Create registers both objects but deliberately excludes them from its own tab generator; the addon appends them with NeoForge's `BuildCreativeModeTabContentsEvent`.
+
+Shadow Steel keeps Create's original uncommon rarity, so its item name remains yellow. This is normal rarity formatting, not a legacy or command-only warning.
