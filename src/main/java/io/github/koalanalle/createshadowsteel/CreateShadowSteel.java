@@ -23,5 +23,7 @@ public final class CreateShadowSteel {
 
         event.accept(AllItems.SHADOW_STEEL.get());
         event.accept(AllBlocks.SHADOW_STEEL_CASING.get());
+        event.accept(AllItems.REFINED_RADIANCE.get());
+        event.accept(AllBlocks.REFINED_RADIANCE_CASING.get());
     }
 }

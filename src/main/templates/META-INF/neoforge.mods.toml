@@ -18,7 +18,6 @@ type="required"
 versionRange="${neo_version_range}"
 ordering="NONE"
 side="BOTH"
-
 [[dependencies."${mod_id}"]]
 modId="minecraft"
 type="required"
@@ -37,5 +36,12 @@ side="BOTH"
 modId="dndesires"
 type="required"
 versionRange="[2.0,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="createaddition"
+type="required"
+versionRange="[1.6.0,)"
 ordering="AFTER"
 side="BOTH"

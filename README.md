@@ -1,13 +1,15 @@
 # Create: Shadow Steel
 
-A small NeoForge 1.21.1 addon that makes Create's existing Shadow Steel and Shadow Casing obtainable again.
+A small NeoForge 1.21.1 addon that makes Create's existing Shadow Steel, Refined Radiance, and their casings obtainable again.
 
-The addon does not copy or replace Create's item/block registrations. Create already registers:
+The addon does not copy or replace Create's item or block registrations. Create already registers:
 
 - `create:shadow_steel`
 - `create:shadow_steel_casing`
+- `create:refined_radiance`
+- `create:refined_radiance_casing`
 
-This project only adds recipes for them.
+This project adds recipes for the legacy materials and exposes all four entries in Create's main creative tab.
 
 ## Recipes
 
@@ -17,15 +19,29 @@ Place the following in a Basin and process it with a Mechanical Press while the 
 
 - 2 Blackstone
 - 2 Iron Ingots
-- 5 Coal Pieces from Create: Dreams n' Desires
+- 4 Coal Pieces from Create: Dreams n' Desires
 
 Output: 1 Shadow Steel.
+
+### Refined Radiance — Heated Compacting
+
+Place the following in a Basin and process it with a Mechanical Press while the Basin is heated by a Blaze Burner:
+
+- 2 Glowstone blocks
+- 2 Electrum Ingots from Create Crafts & Additions
+- 3 Iron Nuggets
+
+Output: 1 Refined Radiance.
 
 ### Shadow Casing — Item Application
 
 Use Shadow Steel on any block in the `c:stripped_logs` tag. This uses Create's `create:item_application` recipe type, the same system used by Andesite Casing.
 
-The same recipe also works with a Deployer.
+### Refined Radiance Casing — Item Application
+
+Use Refined Radiance on any block in the `c:stripped_logs` tag.
+
+Both casing recipes also work with a Deployer.
 
 ## Mod icon
 
@@ -37,6 +53,7 @@ The source resource is `src/main/resources/icon.png`. Gradle copies it to `build
 - NeoForge 21.1.200 or newer
 - Create 6.0.9–6.0.x
 - Create: Dreams n' Desires 2.0+
+- Create Crafts & Additions 1.6.0+
 - Java 21 for development
 
 ## Set up on Windows
@@ -54,13 +71,16 @@ After the wrapper has been downloaded, commit `gradle/wrapper/gradle-wrapper.jar
 
 ## Development client
 
-Put a compatible Create: Dreams n' Desires JAR in `run/mods/`, then run:
+Put compatible Create: Dreams n' Desires and Create Crafts & Additions JARs in `run/mods/`, then run:
 
 ```powershell
 .\gradlew.bat runClient
 ```
 
-Create and its required development dependencies are supplied through Gradle. Dreams n' Desires is intentionally not pinned as a Maven dependency because the recipes only reference its stable item ID, `dndesires:coal_piece`.
+Create and its required development dependencies are supplied through Gradle. The two compatibility mods are runtime dependencies declared in `neoforge.mods.toml`; the recipes reference their stable item IDs:
+
+- `dndesires:coal_piece`
+- `createaddition:electrum_ingot`
 
 ## Project structure
 
@@ -69,17 +89,21 @@ src/main/java/
   io/github/koalanalle/createshadowsteel/CreateShadowSteel.java
 src/main/resources/icon.png
 src/main/resources/data/create_shadow_steel/recipe/
-  compacting/shadow_steel.json
-  item_application/shadow_steel_casing_from_log.json
+  compacting/
+    shadow_steel.json
+    refined_radiance.json
+  item_application/
+    shadow_steel_casing_from_log.json
+    refined_radiance_casing_from_log.json
 src/main/templates/META-INF/neoforge.mods.toml
 ```
+
+## Creative inventory and recipe viewers
+
+The addon adds Shadow Steel, Shadow Casing, Refined Radiance, and Refined Radiance Casing back to Create's main creative tab. Create registers these objects but deliberately excludes them from its own tab generator; the addon appends them with NeoForge's `BuildCreativeModeTabContentsEvent`.
+
+Shadow Steel and Refined Radiance keep Create's original uncommon rarity, so their item names remain yellow. This is normal rarity formatting, not a legacy or command-only warning.
 
 ## License
 
 MIT
-
-## Creative inventory and recipe viewers
-
-The addon adds Shadow Steel and Shadow Casing back to Create's main creative tab. Create registers both objects but deliberately excludes them from its own tab generator; the addon appends them with NeoForge's `BuildCreativeModeTabContentsEvent`.
-
-Shadow Steel keeps Create's original uncommon rarity, so its item name remains yellow. This is normal rarity formatting, not a legacy or command-only warning.
